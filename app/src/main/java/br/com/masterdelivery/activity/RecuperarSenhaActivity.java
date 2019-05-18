@@ -1,4 +1,4 @@
-package br.com.masterdelivery;
+package br.com.masterdelivery.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 
+import br.com.masterdelivery.R;
 import br.com.masterdelivery.utils.HttpUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -114,8 +115,8 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
 
 
     public void onForgetPassSuccess() {
-        _forgetPassButton.setEnabled(true);
-        setResult(RESULT_OK, null);
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
         finish();
     }
 

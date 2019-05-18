@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.MenuActivity"
+    tools:showIn="@layout/app_bar_menu">
+
+    <Switch
+        android:id="@+id/habilitar_corrida"
+        android:layout_width="399dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/switch_habilitar_corrida"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

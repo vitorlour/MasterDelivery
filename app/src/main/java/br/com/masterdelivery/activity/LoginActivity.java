@@ -1,4 +1,4 @@
-package br.com.masterdelivery;
+package br.com.masterdelivery.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 
+import br.com.masterdelivery.R;
 import br.com.masterdelivery.dto.Usuario;
 import br.com.masterdelivery.utils.HttpUtils;
 import butterknife.BindView;
@@ -90,13 +91,13 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        _loginButton.setEnabled(false);
-
         final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Autenticando...");
         progressDialog.show();
+
+        _loginButton.setEnabled(false);
 
         Usuario usuario = Usuario.builder()
                 .email(_emailText.getText().toString())
@@ -152,8 +153,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLoginSuccess() {
-        _loginButton.setEnabled(true);
+        Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+        startActivityForResult(intent, REQUEST_SIGNUP);
         finish();
+
     }
 
     public void onLoginFailed() {
