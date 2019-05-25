@@ -1,4 +1,4 @@
-package br.com.masterdelivery.activity;
+package br.com.masterdelivery.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -16,7 +16,7 @@ import com.google.gson.Gson;
 import java.io.IOException;
 
 import br.com.masterdelivery.R;
-import br.com.masterdelivery.dto.Usuario;
+import br.com.masterdelivery.models.Usuario;
 import br.com.masterdelivery.utils.HttpUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;

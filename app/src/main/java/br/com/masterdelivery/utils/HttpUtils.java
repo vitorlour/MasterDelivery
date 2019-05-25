@@ -40,6 +40,24 @@ public class HttpUtils {
         }
     }
 
+
+    public Object get(String myUrl) throws IOException {
+
+        URL url = new URL(myUrl);
+
+        // 1. Cria HttpURLConnection
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("GET");
+        conn.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+
+        // 2. faz a requisição post para a url fornecida
+        conn.connect();
+
+        return conn.getContent();
+
+    }
+
+
     private void setPostRequestContent(HttpURLConnection conn,
                                        String jsonObject) throws IOException {
 

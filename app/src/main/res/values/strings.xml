@@ -19,4 +19,19 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="switch_habilitar_corrida">Habilitar Corrida</string>
 
+    <string name="not_available">Not available</string>
+    <string name="server_not_available">Server error</string>
+    <string name="title_activity_contas">Contas</string>
+
+    <string name="login">Login</string>
+    <string name="email">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="plataforma">Plataforma</string>
+    <string name="btn_login">Login</string>
+    <string name="sucesso_login_msg">Sucesso</string>
+    <string name="erro_login_msg">Preencher todos os campos</string>
+    <string name="erro_login_post_msg">Usuario, senha ou plataforma invalidos !</string>
+    <string name="title_activity_corrida_aceita">Map</string>
+
+
 </resources>

@@ -1,4 +1,4 @@
-package br.com.masterdelivery.activity;
+package br.com.masterdelivery.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;

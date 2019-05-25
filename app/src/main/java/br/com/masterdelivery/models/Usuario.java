@@ -1,4 +1,4 @@
-package br.com.masterdelivery.dto;
+package br.com.masterdelivery.models;
 
 import lombok.Builder;
 import lombok.Getter;

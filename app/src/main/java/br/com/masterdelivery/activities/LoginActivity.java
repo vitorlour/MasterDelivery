@@ -1,4 +1,4 @@
-package br.com.masterdelivery.activity;
+package br.com.masterdelivery.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -16,7 +16,7 @@ import com.google.gson.Gson;
 import java.io.IOException;
 
 import br.com.masterdelivery.R;
-import br.com.masterdelivery.dto.Usuario;
+import br.com.masterdelivery.models.Usuario;
 import br.com.masterdelivery.utils.HttpUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     private static final int REQUEST_FORGET_PASSWORD = 0;
 
     private static final String URI_LOGIN = "http://10.0.3.2:8080/login";
+
+    public static String TOKEN_MASTER_DELIVERY_LOGIN = "";
 
 
     @BindView(R.id.input_email)
@@ -122,6 +124,8 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        TOKEN_MASTER_DELIVERY_LOGIN = token.toString();
+
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
@@ -146,13 +150,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        // Disable going back to the MainActivity
-        moveTaskToBack(true);
-    }
-
-    public void onLoginSuccess() {
+     public void onLoginSuccess() {
         Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
         startActivityForResult(intent, REQUEST_SIGNUP);
         finish();

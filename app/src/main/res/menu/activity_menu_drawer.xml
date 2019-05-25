@@ -8,11 +8,19 @@
             android:id="@+id/nav_home"
             android:title="Home" />
         <item
-            android:id="@+id/nav_vincular_apps"
-            android:title="Vincular Aplicativos" />
+            android:id="@+id/nav_contas"
+            android:title="Contas" />
+
+        <item
+            android:id="@+id/nav_minhas_entregas"
+            android:title="Minhas entregas" />
         <item
             android:id="@+id/nav_alterar_senha"
             android:title="Alterar a senha" />
+
+        <item
+            android:id="@+id/nav_rentabilidade_apps"
+            android:title="Rentabilidade" />
 
         <item
             android:id="@+id/nav_sair"

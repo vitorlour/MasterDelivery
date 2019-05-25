@@ -9,7 +9,7 @@
     tools:showIn="@layout/app_bar_menu">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerviewid"
+        android:id="@+id/recyclerview_id_contas"
         android:layout_width="387dp"
         android:layout_height="590dp"
         android:layout_marginStart="13dp"
