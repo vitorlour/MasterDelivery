@@ -50,14 +50,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onClick(View v) {
 
                 Intent i = new Intent(mContext, CorridaActivity.class);
-                i.putExtra("Nome do Estabelecimento", mData.get(viewHolder.getAdapterPosition()).getNomeEstabelecimento());
-                i.putExtra("Endreço do estabelecimento", mData.get(viewHolder.getAdapterPosition()).getEndEstabelecimento());
-                i.putExtra("Nome do cliente", mData.get(viewHolder.getAdapterPosition()).getNomeCliente());
-                i.putExtra("Endereço do cliente", mData.get(viewHolder.getAdapterPosition()).getEndCliente());
-                i.putExtra("Valor da entrega", mData.get(viewHolder.getAdapterPosition()).getValorEntrega());
-               // i.putExtra("Plataforma", mData.get(viewHolder.getAdapterPosition()).getPlataforma());
-                i.putExtra("logo_app_img", mData.get(viewHolder.getAdapterPosition()).getLogoPath());
-
+                i.putExtra("CorridaClass", mData.get(viewHolder.getAdapterPosition()));
                 mContext.startActivity(i);
 
             }
@@ -68,6 +61,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
+        holder.idPedido.setText(mData.get(position).getId());
         holder.nomeEstabelecimento.setText(mData.get(position).getNomeEstabelecimento());
         holder.enderecoEstabelecimento.setText(mData.get(position).getEndEstabelecimento());
         holder.vlr_entrega.setText(mData.get(position).getValorEntrega());
@@ -82,6 +76,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
+        TextView idPedido;
         TextView nomeEstabelecimento;
         TextView enderecoEstabelecimento;
         TextView vlr_entrega;
@@ -92,6 +87,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             super(itemView);
 
             view_container = itemView.findViewById(R.id.container);
+            idPedido = itemView.findViewById(R.id.id_pedido_corrida_row);
+
+
             nomeEstabelecimento = itemView.findViewById(R.id.nome_estabelecimento);
             enderecoEstabelecimento = itemView.findViewById(R.id.end_estabelecimento);
             vlr_entrega = itemView.findViewById(R.id.vlr_entrega);

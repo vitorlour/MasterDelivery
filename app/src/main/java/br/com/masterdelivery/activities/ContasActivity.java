@@ -22,16 +22,13 @@ import br.com.masterdelivery.models.ErrorObject;
 import br.com.masterdelivery.models.UsuarioFakeAppsDTO;
 import br.com.masterdelivery.retrofit.ApiServiceProvider;
 import br.com.masterdelivery.transformer.UsuarioFakeAppsDTOTransformer;
+import br.com.masterdelivery.utils.Constants;
 import br.com.masterdelivery.utils.MasterDeliveryUtils;
 
 public class ContasActivity extends AppCompatActivity implements RetrofitListener {
 
     private AlertDialog dialog = null;
     private RecyclerView recyclerView;
-
-    private boolean ehPost;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +69,6 @@ public class ContasActivity extends AppCompatActivity implements RetrofitListene
                                                                        .plataforma(String.valueOf(mPlataforma.getText()))
                                                                        .build();
                         if (!usuario.getEmail().isEmpty() && !usuario.getSenha().isEmpty() && !usuario.getPlataforma().isEmpty()) {
-                            ehPost = true;
                             ApiServiceProvider apiServiceProvider = ApiServiceProvider.getInstance(ContasActivity.this);
                             apiServiceProvider.postVincularApps(ContasActivity.this, usuario);
 
@@ -93,37 +89,39 @@ public class ContasActivity extends AppCompatActivity implements RetrofitListene
     
     @Override
     public void onResponseSuccess(String responseBodyString, int apiFlag) {
-        if(ehPost){
 
-            Toast.makeText(ContasActivity.this,
-                    R.string.sucesso_login_msg,
-                    Toast.LENGTH_SHORT).show();
-            dialog.dismiss();
+        switch (apiFlag) {
+            case Constants.ApiFlags.POST_VINCULAR_APPS:
+                Toast.makeText(ContasActivity.this,
+                        R.string.sucesso_login_msg,
+                        Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
 
-            ApiServiceProvider apiServiceProvider = ApiServiceProvider.getInstance(this);
-            apiServiceProvider.getContasApps(ContasActivity.this);
+                ApiServiceProvider apiServiceProvider = ApiServiceProvider.getInstance(this);
+                apiServiceProvider.getContasApps(ContasActivity.this);
+                break;
+            case Constants.ApiFlags.GET_CONTAS_APPS:
+                if(!responseBodyString.equals("[]")){
+                    List<UsuarioFakeAppsDTO> usuario = Arrays.asList(MasterDeliveryUtils.usuarioFakeAppsFromJson(responseBodyString));
+                    usuario = UsuarioFakeAppsDTOTransformer.transform(usuario);
+                    setUpRecyclerView(usuario);
+                }
+                break;
 
         }
-
-        if(!ehPost){
-            if(!responseBodyString.equals("[]")){
-                List<UsuarioFakeAppsDTO> usuario = Arrays.asList(MasterDeliveryUtils.usuarioFakeAppsFromJson(responseBodyString));
-                usuario = UsuarioFakeAppsDTOTransformer.transform(usuario);
-                setUpRecyclerView(usuario);
-            }
-        }
-
-        ehPost = false;
-
 
     }
 
     @Override
     public void onResponseError(ErrorObject errorObject, Throwable throwable, int apiFlag) {
+        switch (apiFlag) {
+            case Constants.ApiFlags.POST_CORRIDAS:
+                Toast.makeText(ContasActivity.this,
+                        R.string.erro_login_post_msg,
+                        Toast.LENGTH_SHORT).show();
+                break;
+        }
 
-        Toast.makeText(ContasActivity.this,
-                R.string.erro_login_post_msg,
-                Toast.LENGTH_SHORT).show();
     }
 
 

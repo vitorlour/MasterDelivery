@@ -3,6 +3,7 @@ package br.com.masterdelivery.retrofit;
 import android.content.Context;
 
 import br.com.masterdelivery.listeners.RetrofitListener;
+import br.com.masterdelivery.models.AceitarCorridaDTO;
 import br.com.masterdelivery.models.Coordenadas;
 import br.com.masterdelivery.models.SairContaFakeAppsDTO;
 import br.com.masterdelivery.models.UsuarioFakeAppsDTO;
@@ -105,6 +106,22 @@ public class ApiServiceProvider extends RetrofitBase {
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 //pass correct flag to differentiate between multiple api calls in same activity/frag
                 retrofitListener.onResponseError(HttpUtil.getServerErrorPojo(context), t, Constants.ApiFlags.DELETE_CONTA_APP);
+            }
+        });
+    }
+
+    public void postAceitarCorrida(final RetrofitListener retrofitListener, AceitarCorridaDTO dto) {
+        Call<ResponseBody> call = apiServices.postAceitarCorrida(dto);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                validateResponse(response, retrofitListener, Constants.ApiFlags.POST_ACEITAR_CORRIDA);
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                //pass correct flag to differentiate between multiple api calls in same activity/frag
+                retrofitListener.onResponseError(HttpUtil.getServerErrorPojo(context), t, Constants.ApiFlags.POST_ACEITAR_CORRIDA);
             }
         });
     }

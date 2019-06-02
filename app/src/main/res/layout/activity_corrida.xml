@@ -1,135 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="br.com.masterdelivery.activities.CorridaActivity"
-    android:background="#303030">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
 
-    <android.support.design.widget.AppBarLayout
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:id="@+id/appbarlayout_id">
+        android:layout_height="wrap_content"
+        android:paddingTop="56dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
 
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/collapsingtoolbar_id"
-            app:layout_scrollFlags="exitUntilCollapsed|scroll"
-            app:title=""
-            app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleMarginStart="48dp"
-            app:expandedTitleMarginEnd="64dp"
-            >
-
-            <android.support.v7.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                android:theme="@style/ThemeOverlay.AppCompat.Light">
-            </android.support.v7.widget.Toolbar>
+        <ImageView
+            android:id="@+id/aa_thumbnail"
+            android:layout_width="100dp"
+            android:layout_height="127dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/loading_shape" />
 
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="50dp"
-                >
+        <TextView
+            android:id="@+id/id_pedido_corrida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Id do pedido" />
 
 
-                <ImageView
-                    android:id="@+id/aa_thumbnail"
-                    android:layout_width="100dp"
-                    android:layout_height="127dp"
-                    android:background="@drawable/loading_shape" />
+        <TextView
+            android:id="@+id/nome_estabelecimento_corrida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome do estabelecimento"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="240dp"
-                    android:layout_height="223dp"
-                    android:layout_margin="8dp"
-                    android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Endereco do estabelecimento" />
 
-
-                    <TextView
-                        android:id="@+id/nome_estabelecimento_corrida"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nome do estabelecimento"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <android.support.v7.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Endereco do estabelecimento"/>
-
-                    <TextView
-                        android:id="@+id/end_estabelecimento_corrida"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Endereco do estabelecimento" />
+        <TextView
+            android:id="@+id/end_estabelecimento_corrida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"/>
 
 
-                    <android.support.v7.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Nome do Cliente"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Nome do Cliente" />
 
-                    <TextView
-                        android:id="@+id/nome_cliente_corrida"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Nome do Cliente" />
+        <TextView
+            android:id="@+id/nome_cliente_corrida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"/>
 
-                    <android.support.v7.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Endereco Do Cliente"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Endereco Do Cliente" />
 
-                    <TextView
-                        android:id="@+id/end_cliente_corrida"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Endereco Do Cliente" />
+        <TextView
+            android:id="@+id/end_cliente_corrida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"/>
 
-                    <android.support.v7.widget.AppCompatTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Valor da entrega"/>
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Valor da entrega" />
 
-                    <TextView
-                        android:id="@+id/vlr_entrega_corrida"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Valor da entrega" />
-
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-
-        </android.support.design.widget.CollapsingToolbarLayout>
-
-
-    </android.support.design.widget.AppBarLayout>
-
-
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:padding="16dp"        >
-
+        <TextView
+            android:id="@+id/vlr_entrega_corrida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" />
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_aceitar_corrida"
@@ -142,7 +102,5 @@
             android:padding="12dp"
             android:text="Aceitar"/>
 
-    </android.support.v4.widget.NestedScrollView>
-
-    
-</android.support.design.widget.CoordinatorLayout>
+    </LinearLayout>
+</ScrollView>

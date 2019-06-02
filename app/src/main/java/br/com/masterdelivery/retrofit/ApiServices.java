@@ -1,6 +1,7 @@
 package br.com.masterdelivery.retrofit;
 
 
+import br.com.masterdelivery.models.AceitarCorridaDTO;
 import br.com.masterdelivery.models.Coordenadas;
 import br.com.masterdelivery.models.SairContaFakeAppsDTO;
 import br.com.masterdelivery.models.UsuarioFakeAppsDTO;
@@ -28,5 +29,8 @@ public interface ApiServices {
 
     @POST(Constants.UrlPath.DELETE_CONTA_APP)
     Call<ResponseBody> deleteContaApp(@Body SairContaFakeAppsDTO dto);
+
+    @POST(Constants.UrlPath.POST_ACEITAR_CORRIDA)
+    Call<ResponseBody> postAceitarCorrida(@Body AceitarCorridaDTO dto);
 
 }

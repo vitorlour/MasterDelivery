@@ -1,52 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:layout_marginTop="5dp"
-    android:padding="8dp"
-    android:background="@drawable/bgg"
-    android:id="@+id/container">
+    android:background="@color/accent"
+    android:orientation="horizontal"
+    android:padding="8dp">
 
 
     <ImageView
+        android:id="@+id/thumbnail"
         android:layout_width="100dp"
         android:layout_height="match_parent"
-        android:background="@drawable/loading_shape"
-        android:id="@+id/thumbnail"/>
+        android:background="@drawable/loading_shape" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="130dp"
-        android:orientation="vertical"
-        android:layout_margin="8dp">
+        android:layout_margin="8dp"
+        android:orientation="vertical">
 
 
         <TextView
+            android:id="@+id/id_pedido_corrida_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textColor="#0E0D0D"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/nome_estabelecimento"
-            android:text="Nome do Estabelecimento"
-            android:textStyle="bold"
-            android:textSize="18sp"/>
-
-        <TextView
-            android:textColor="#0F0F0F"
-            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Endreço do estabelecimento"
-            android:id="@+id/end_estabelecimento"/>
+            android:textColor="#0E0D0D"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:textColor="#141414"
+            android:id="@+id/end_estabelecimento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Valor entrega"
             android:layout_marginTop="5dp"
-            android:id="@+id/vlr_entrega"/>
+            android:textColor="#0F0F0F" />
+
+        <TextView
+            android:id="@+id/vlr_entrega"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="#141414" />
 
     </LinearLayout>
 

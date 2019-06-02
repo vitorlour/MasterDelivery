@@ -6,6 +6,8 @@ package br.com.masterdelivery.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,7 +23,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UsuarioFakeAppsDTO{
+public class UsuarioFakeAppsDTO implements Serializable {
 
     @SerializedName("email")
     @Expose

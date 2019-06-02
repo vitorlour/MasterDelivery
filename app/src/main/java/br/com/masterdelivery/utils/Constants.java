@@ -9,11 +9,11 @@ public class  Constants{
     }
 
     public interface UrlPath {
-        String POST_CORRIDA = "corrida";
+        String POST_CORRIDA = "corrida/";
         String POST_VINCULAR_APPS = "usuario/vincularapps";
         String GET_CONTAS_APPS = "usuario/contasapps";
         String DELETE_CONTA_APP = "usuario/saircontaapp";
-
+        String POST_ACEITAR_CORRIDA = "corrida/aceitar";
 
     }
 
@@ -24,6 +24,7 @@ public class  Constants{
         int POST_VINCULAR_APPS = 2;
         int GET_CONTAS_APPS = 3;
         int DELETE_CONTA_APP = 4;
+        int POST_ACEITAR_CORRIDA = 4;
 
 
     }

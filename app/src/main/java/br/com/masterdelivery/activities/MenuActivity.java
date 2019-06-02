@@ -60,6 +60,8 @@ public class MenuActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
     }
 
 
@@ -127,8 +129,6 @@ public class MenuActivity extends AppCompatActivity
         List<Corrida> corrida = Arrays.asList(MasterDeliveryUtils.corridaFromJson(responseBodyString));
         corrida = CorridaTransformer.transform(corrida);
         setUpRecyclerView(corrida);
-
-
     }
 
     @Override
@@ -163,7 +163,6 @@ public class MenuActivity extends AppCompatActivity
     }
 
     private void setUpRecyclerView(List<Corrida> lstCorrida) {
-
 
         RecyclerViewAdapter myadapter = new RecyclerViewAdapter(this, lstCorrida);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

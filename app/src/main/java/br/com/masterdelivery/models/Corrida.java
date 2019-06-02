@@ -3,6 +3,8 @@
  */
 package br.com.masterdelivery.models;
 
+import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,9 +14,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @Builder
-public class Corrida {
+public class Corrida implements Serializable {
 
-	private Long id;
+	private String id;
 
 	private String nomeEstabelecimento;
 
