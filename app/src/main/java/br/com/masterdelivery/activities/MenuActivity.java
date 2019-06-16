@@ -17,6 +17,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import java.util.Arrays;
 import java.util.List;
@@ -29,6 +32,7 @@ import br.com.masterdelivery.models.Corrida;
 import br.com.masterdelivery.models.ErrorObject;
 import br.com.masterdelivery.retrofit.ApiServiceProvider;
 import br.com.masterdelivery.transformer.CorridaTransformer;
+import br.com.masterdelivery.utils.Constants;
 import br.com.masterdelivery.utils.MasterDeliveryUtils;
 
 public class MenuActivity extends AppCompatActivity
@@ -44,8 +48,10 @@ public class MenuActivity extends AppCompatActivity
 
         recyclerView = findViewById(R.id.recyclerviewid);
 
-
         ApiServiceProvider apiServiceProvider = ApiServiceProvider.getInstance(this);
+
+        apiServiceProvider.getCorridaAndamento(this);
+
         apiServiceProvider.postCorridas(this, getLocation());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -125,14 +131,50 @@ public class MenuActivity extends AppCompatActivity
 
     @Override
     public void onResponseSuccess(String responseBodyString, int apiFlag) {
+        switch (apiFlag) {
+            case Constants.ApiFlags.POST_CORRIDAS:
+                if(!responseBodyString.isEmpty()){
+                    List<Corrida> corrida = Arrays.asList(MasterDeliveryUtils.corridaFromJson(responseBodyString));
+                    corrida = CorridaTransformer.transform(corrida);
+                    setUpRecyclerView(corrida);
+                }
+                break;
+            case Constants.ApiFlags.GET_CORRIDA_EM_ANDAMENTO:
+                if(!responseBodyString.isEmpty()){
+                    Corrida corridaa = new Gson().fromJson(responseBodyString, Corrida.class);
+                    corridaa = CorridaTransformer.transform(corridaa);
 
-        List<Corrida> corrida = Arrays.asList(MasterDeliveryUtils.corridaFromJson(responseBodyString));
-        corrida = CorridaTransformer.transform(corrida);
-        setUpRecyclerView(corrida);
+                    if(!corridaa.getStatusCorrida().equals(0)){
+                        Intent i = new Intent(getApplicationContext(), CorridaAceitaActivity.class);
+                        i.putExtra("CorridaClass", corridaa);
+                        startActivity(i);
+                        onPause();
+                    }
+                }
+
+                break;
+        }
+
     }
 
     @Override
     public void onResponseError(ErrorObject errorObject, Throwable throwable, int apiFlag) {
+        switch (apiFlag) {
+            case Constants.ApiFlags.POST_CORRIDAS:
+                Toast.makeText(MenuActivity.this,
+                        errorObject.getMessage(),
+                        Toast.LENGTH_SHORT).show();
+                break;
+            case Constants.ApiFlags.GET_CORRIDA_EM_ANDAMENTO:
+               if(errorObject.getStatus() == 403){
+                   Toast.makeText(MenuActivity.this,
+                           errorObject.getMessage(),
+                           Toast.LENGTH_SHORT).show();
+               }
+
+                break;
+        }
+
     }
 
 

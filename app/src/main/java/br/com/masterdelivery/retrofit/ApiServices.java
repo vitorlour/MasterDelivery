@@ -33,4 +33,13 @@ public interface ApiServices {
     @POST(Constants.UrlPath.POST_ACEITAR_CORRIDA)
     Call<ResponseBody> postAceitarCorrida(@Body AceitarCorridaDTO dto);
 
+    @POST(Constants.UrlPath.POST_PEDIDO_COLETADO)
+    Call<ResponseBody> postPedidoColetado(@Body Coordenadas dto);
+
+    @GET(Constants.UrlPath.GET_CORRIDA_EM_ANDAMENTO)
+    Call<ResponseBody> getCorridaAndamento();
+
+    @POST(Constants.UrlPath.POST_CORRIDA_ENTREGA_PEDIDO_EFETUADA)
+    Call<ResponseBody> postEntregaPedidoEfetuada(@Body Coordenadas dto);
+
 }

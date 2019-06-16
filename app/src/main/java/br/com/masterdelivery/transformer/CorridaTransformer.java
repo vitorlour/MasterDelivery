@@ -14,10 +14,11 @@ public class CorridaTransformer {
 
     private final static String JOGO_DA_VELHA = "#";
 
+    private final static NumberFormat moedaBR = NumberFormat.getCurrencyInstance(localeBR);
+
+
     public static List<Corrida> transform(List<Corrida> corrida){
         List<Corrida> cor = new ArrayList<>();
-
-        NumberFormat moedaBR = NumberFormat.getCurrencyInstance(localeBR);
 
         if(!corrida.isEmpty()){
             for (Corrida c : corrida  ) {
@@ -34,5 +35,20 @@ public class CorridaTransformer {
             }
         }
         return cor;
+    }
+
+    public static Corrida transform(Corrida corrida){
+
+
+        corrida.setValorEntrega(moedaBR.format(Double.valueOf(corrida.getValorEntrega())));
+        corrida.setId(JOGO_DA_VELHA + corrida.getId());
+
+        if(corrida.getPlataforma().equals(Constants.PlataformaID.IFOOD_ID)){
+            corrida.setLogoPath(Constants.LogosPath.IFOOD_LOGO);
+        }else if(corrida.getPlataforma().equals(Constants.PlataformaID.RAPPI_ID)){
+            corrida.setLogoPath(Constants.LogosPath.RAPPI_LOGO);
+        }
+
+        return corrida;
     }
 }

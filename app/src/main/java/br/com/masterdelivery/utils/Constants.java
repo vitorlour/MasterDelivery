@@ -14,6 +14,10 @@ public class  Constants{
         String GET_CONTAS_APPS = "usuario/contasapps";
         String DELETE_CONTA_APP = "usuario/saircontaapp";
         String POST_ACEITAR_CORRIDA = "corrida/aceitar";
+        String POST_PEDIDO_COLETADO = "corrida/pedidocoletado";
+        String GET_CORRIDA_EM_ANDAMENTO = "corrida/corridaemandamento";
+        String POST_CORRIDA_ENTREGA_PEDIDO_EFETUADA = "corrida/entregapedidoefetuada";
+
 
     }
 
@@ -24,8 +28,10 @@ public class  Constants{
         int POST_VINCULAR_APPS = 2;
         int GET_CONTAS_APPS = 3;
         int DELETE_CONTA_APP = 4;
-        int POST_ACEITAR_CORRIDA = 4;
-
+        int POST_ACEITAR_CORRIDA = 5;
+        int POST_PEDIDO_COLETADO = 6;
+        int GET_CORRIDA_EM_ANDAMENTO = 7;
+        int POST_CORRIDA_ENTREGA_PEDIDO_EFETUADA = 8;
 
     }
 

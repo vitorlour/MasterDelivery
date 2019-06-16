@@ -85,6 +85,7 @@ public class CorridaActivity extends AppCompatActivity implements RetrofitListen
         switch (apiFlag) {
             case Constants.ApiFlags.POST_ACEITAR_CORRIDA:
                 Intent intent = new Intent(getApplicationContext(), CorridaAceitaActivity.class);
+                intent.putExtra("CorridaClass", corrida);
                 startActivity(intent);
                 finish();
                 break;

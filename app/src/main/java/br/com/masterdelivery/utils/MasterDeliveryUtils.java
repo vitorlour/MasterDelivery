@@ -4,11 +4,17 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
+
+import java.io.IOException;
+import java.util.List;
 
 import br.com.masterdelivery.models.Coordenadas;
 import br.com.masterdelivery.models.Corrida;
@@ -22,6 +28,29 @@ public class MasterDeliveryUtils {
 
     public static UsuarioFakeAppsDTO[] usuarioFakeAppsFromJson(String json){
         return new Gson().fromJson(json, UsuarioFakeAppsDTO[].class);
+    }
+
+    public static LatLng getLocationFromAddress(Context context, String strAddress) {
+
+        Geocoder coder = new Geocoder(context);
+        List<Address> address;
+        LatLng p1 = null;
+
+        try {
+            // May throw an IOException
+            address = coder.getFromLocationName(strAddress, 5);
+            if (address == null) {
+                return null;
+            }
+
+            Address location = address.get(0);
+            p1 = new LatLng(location.getLatitude(), location.getLongitude() );
+
+        } catch (IOException ex) {
+
+        }
+
+        return p1;
     }
 
 

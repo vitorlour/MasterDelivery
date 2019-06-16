@@ -126,4 +126,54 @@ public class ApiServiceProvider extends RetrofitBase {
         });
     }
 
+    public void postPedidoColetado(final RetrofitListener retrofitListener, Coordenadas dto) {
+        Call<ResponseBody> call = apiServices.postPedidoColetado(dto);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                validateResponse(response, retrofitListener, Constants.ApiFlags.POST_PEDIDO_COLETADO);
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                //pass correct flag to differentiate between multiple api calls in same activity/frag
+                retrofitListener.onResponseError(HttpUtil.getServerErrorPojo(context), t, Constants.ApiFlags.POST_PEDIDO_COLETADO);
+            }
+        });
+    }
+
+
+    public void getCorridaAndamento(final RetrofitListener retrofitListener) {
+        Call<ResponseBody> call = apiServices.getCorridaAndamento();
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                validateResponse(response, retrofitListener, Constants.ApiFlags.GET_CORRIDA_EM_ANDAMENTO);
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                //pass correct flag to differentiate between multiple api calls in same activity/frag
+                retrofitListener.onResponseError(HttpUtil.getServerErrorPojo(context), t, Constants.ApiFlags.GET_CORRIDA_EM_ANDAMENTO);
+            }
+        });
+    }
+
+
+    public void postEntregaPedidoEfetuada(final RetrofitListener retrofitListener, Coordenadas dto) {
+        Call<ResponseBody> call = apiServices.postEntregaPedidoEfetuada(dto);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                validateResponse(response, retrofitListener, Constants.ApiFlags.POST_CORRIDA_ENTREGA_PEDIDO_EFETUADA);
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                //pass correct flag to differentiate between multiple api calls in same activity/frag
+                retrofitListener.onResponseError(HttpUtil.getServerErrorPojo(context), t, Constants.ApiFlags.POST_CORRIDA_ENTREGA_PEDIDO_EFETUADA);
+            }
+        });
+    }
+
 }
