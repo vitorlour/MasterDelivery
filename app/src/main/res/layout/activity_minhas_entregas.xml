@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".activities.MinhasEntregasActivity">
 
+    <GridView
+        android:id="@+id/grdEntregas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="3"
+        tools:layout_editor_absoluteX="193dp"
+        tools:layout_editor_absoluteY="85dp" />
 </android.support.constraint.ConstraintLayout>
