@@ -48,7 +48,7 @@ public class RentabilidadeActivity extends AppCompatActivity {
                 //"chm=B,C5D4B5BB,0,0,0"; //fundo verde
                 "chm=v,FF0000,0,::.10,4"; //fundo vermelho
 
-        strURL = "https://chart.apis.google.com/chart?cht=bhg&chs=550x400&chd=t:100,50,115,80&chxt=x,y&chxl=1:|iFood|UberEats|Rappy|James&chxr=0,0,120&chds=0,120&chco=FF0000&chbh=35,0,15&chg=8.33,0,5,0&chco=FF0000,0A8C8A,EBB671&chtt=Rentabilidade das Entregas";
+        strURL = "https://chart.apis.google.com/chart?cht=bhg&chs=350x400&chd=t:100,50,115,80&chxt=x,y&chxl=1:|iFood|UberEats|Rappy|James&chxr=0,0,120&chds=0,120&chco=FF0000&chbh=35,0,15&chg=8.33,0,5,0&chco=FF0000,0A8C8A,EBB671&chtt=Rentabilidade das Entregas";
 
         //Abaixo seguem outros exemplo de gráfico:
         //strURL = "https://chart.googleapis.com/chart?cht=lc&chxt=x,y&chs=300x300&chd=t:10,45,5,10,13,26&chl=Janeiro|Fevereiro|Marco|Abril|Maio|Junho&chdl=Vendas%20&chxr=1,0,50&chds=0,25&chg=0,5,0,0&chco=3D7930&chtt=Vendas+x+1000&chm=v,FF0000,0,::.10,4";
