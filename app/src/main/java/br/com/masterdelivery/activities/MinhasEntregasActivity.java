@@ -14,10 +14,11 @@ public class MinhasEntregasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_minhas_entregas);
 
-        String lista[] = new String[]{"Conta", "Valor", "Taxa",
-                                      "iFood","100,00", "10,00",
-                                      "iFood", "120,00", "12,00",
-                                      "iFood", "50,00", "5,00",};
+        String lista[] = new String[]{"Conta", "Estabelecimento", "Valor",
+                                      "iFood", "McDonalds",       "35,00",
+                                      "iFood", "Pizza Hut",       "28,00",
+                                      "Rappi", "Pão de Açúcar",   "15,00",};
+
 
         GridView gv = (GridView) findViewById(R.id.grdEntregas);
 
