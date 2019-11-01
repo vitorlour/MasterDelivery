@@ -115,7 +115,9 @@ public class MenuActivity extends AppCompatActivity
             startActivity(intent);
             onPause();
         }else if (id == R.id.nav_rentabilidade_apps) {
-
+            Intent intent = new Intent(getApplicationContext(), RentabilidadeActivity.class);
+            startActivity(intent);
+            onPause();
         }else if (id == R.id.nav_alterar_senha) {
 
         } else if (id == R.id.nav_sair) {

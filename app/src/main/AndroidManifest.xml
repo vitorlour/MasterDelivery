@@ -36,6 +36,9 @@
             android:name=".activities.CorridaAceitaActivity"
             android:label="@string/title_activity_corrida_aceita" />
         <activity
+            android:name=".activities.RentabilidadeActivity"
+            android:label="@string/title_activity_rentabilidade" />
+        <activity
             android:name=".activities.ContasActivity"
             android:label="@string/title_activity_contas"
             android:theme="@style/AppTheme.NoActionBar" />
